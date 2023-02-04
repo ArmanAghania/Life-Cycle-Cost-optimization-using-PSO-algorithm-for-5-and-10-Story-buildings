@@ -1,0 +1,356 @@
+wipe 
+wipeAnalysis 
+model BasicBuilder -ndm 2 -ndf 3 
+ 
+source HSSsection.tcl 
+source ISection.tcl 
+ 
+set DL 2500 
+set LL 1000 
+set m [expr ($DL + 0.25*$LL)*5/9.80665019982] 
+ 
+node 10 0 0  
+node 20 5 0  
+node 30 10 0  
+node 40 15 0  
+node 110 0 3  
+node 120 5 3  
+node 130 10 3  
+node 140 15 3  
+node 210 0 6  
+node 220 5 6  
+node 230 10 6  
+node 240 15 6  
+node 310 0 9  
+node 320 5 9  
+node 330 10 9  
+node 340 15 9  
+node 410 0 12  
+node 420 5 12  
+node 430 10 12  
+node 440 15 12  
+node 510 0 15  
+node 520 5 15  
+node 530 10 15  
+node 540 15 15  
+
+node 112 0 3 
+node 121 5 3 
+node 122 5 3 
+node 131 10 3 
+node 132 10 3 
+node 141 15 3 
+node 212 0 6 
+node 221 5 6 
+node 222 5 6 
+node 231 10 6 
+node 232 10 6 
+node 241 15 6 
+node 312 0 9 
+node 321 5 9 
+node 322 5 9 
+node 331 10 9 
+node 332 10 9 
+node 341 15 9 
+node 412 0 12 
+node 421 5 12 
+node 422 5 12 
+node 431 10 12 
+node 432 10 12 
+node 441 15 12 
+node 512 0 15 
+node 521 5 15 
+node 522 5 15 
+node 531 10 15 
+node 532 10 15 
+node 541 15 15 
+
+
+
+
+fixY 0.0 1 1 0 
+
+
+equalDOF 110 120 1 
+equalDOF 110 130 1 
+equalDOF 110 140 1 
+equalDOF 210 220 1 
+equalDOF 210 230 1 
+equalDOF 210 240 1 
+equalDOF 310 320 1 
+equalDOF 310 330 1 
+equalDOF 310 340 1 
+equalDOF 410 420 1 
+equalDOF 410 430 1 
+equalDOF 410 440 1 
+equalDOF 510 520 1 
+equalDOF 510 530 1 
+equalDOF 510 540 1 
+
+
+
+
+mass 110 [expr $m/2] 1e-12 1e-12 
+mass 120 $m 1e-12 1e-12 
+mass 130 $m 1e-12 1e-12 
+mass 140 [expr $m/2] 1e-12 1e-12 
+mass 210 [expr $m/2] 1e-12 1e-12 
+mass 220 $m 1e-12 1e-12 
+mass 230 $m 1e-12 1e-12 
+mass 240 [expr $m/2] 1e-12 1e-12 
+mass 310 [expr $m/2] 1e-12 1e-12 
+mass 320 $m 1e-12 1e-12 
+mass 330 $m 1e-12 1e-12 
+mass 340 [expr $m/2] 1e-12 1e-12 
+mass 410 [expr $m/2] 1e-12 1e-12 
+mass 420 $m 1e-12 1e-12 
+mass 430 $m 1e-12 1e-12 
+mass 440 [expr $m/2] 1e-12 1e-12 
+mass 510 [expr $m/2] 1e-12 1e-12 
+mass 520 $m 1e-12 1e-12 
+mass 530 $m 1e-12 1e-12 
+mass 540 [expr $m/2] 1e-12 1e-12 
+geomTransf Linear 1 
+uniaxialMaterial Steel01   1   35153481   20394323844     0.03	 
+
+
+ISection 101 1 3.505200e-01 2.039620e-01 1.511300e-02 8.636000e-03 20 2 20 4
+ISection 102 1 3.530600e-01 2.047240e-01 1.676400e-02 9.398000e-03 20 2 20 4
+ISection 103 1 3.556000e-01 2.540000e-01 1.828800e-02 1.054100e-02 20 2 20 4
+ISection 104 1 3.606800e-01 2.565400e-01 1.993900e-02 1.143000e-02 20 2 20 4
+ISection 105 1 3.632200e-01 2.565400e-01 2.171700e-02 1.295400e-02 20 2 20 4
+ISection 106 1 3.733800e-01 3.733800e-01 2.616200e-02 1.638300e-02 20 2 20 4
+ISection 107 1 3.759200e-01 3.937000e-01 2.768600e-02 1.727200e-02 20 2 20 4
+ISection 108 1 3.810000e-01 3.962400e-01 3.022600e-02 1.892300e-02 20 2 20 4
+ISection 109 1 3.860800e-01 3.987800e-01 3.327400e-02 2.108200e-02 20 2 20 4
+ISection 110 1 3.937000e-01 3.987800e-01 3.657600e-02 2.260600e-02 20 2 20 4
+ISection 111 1 3.987800e-01 4.013200e-01 3.962400e-02 2.489200e-02 20 2 20 4
+ISection 112 1 4.064000e-01 4.038600e-01 4.368800e-02 2.717800e-02 20 2 20 4
+ISection 113 1 4.165600e-01 4.064000e-01 4.800600e-02 2.997200e-02 20 2 20 4
+ISection 114 1 4.241800e-01 4.089400e-01 5.257800e-02 3.276600e-02 20 2 20 4
+ISection 115 1 4.343400e-01 4.114800e-01 5.740400e-02 3.581400e-02 20 2 20 4
+ISection 116 1 4.445000e-01 4.165600e-01 6.273800e-02 3.911600e-02 20 2 20 4
+ISection 117 1 4.546600e-01 4.191000e-01 6.756400e-02 4.216400e-02 20 2 20 4
+ISection 118 1 4.648200e-01 4.216400e-01 7.239000e-02 4.495800e-02 20 2 20 4
+ISection 119 1 4.749800e-01 4.241800e-01 7.721600e-02 4.775200e-02 20 2 20 4
+ISection 120 1 4.826000e-01 4.267200e-01 8.153400e-02 5.130800e-02 20 2 20 4
+ISection 121 1 4.980000e-01 4.320000e-01 8.890000e-02 5.560000e-02 20 2 20 4
+ISection 122 1 5.130000e-01 4.370000e-01 9.700000e-02 6.050000e-02 20 2 20 4
+ISection 123 1 5.310000e-01 4.420000e-01 1.060000e-01 6.600000e-02 20 2 20 4
+ISection 124 1 5.490000e-01 4.500000e-01 1.150000e-01 7.190000e-02 20 2 20 4
+ISection 125 1 5.690000e-01 4.550000e-01 1.250000e-01 7.800000e-02 20 2 20 4
+
+
+ISection 201 1 3.098800e-01 1.018540e-01 8.890000e-03 5.969000e-03 20 2 20 4
+ISection 202 1 3.124200e-01 1.023620e-01 1.079500e-02 6.604000e-03 20 2 20 4
+ISection 203 1 3.175000e-01 1.666240e-01 1.320800e-02 7.620000e-03 20 2 20 4
+ISection 204 1 3.098800e-01 2.052320e-01 1.625600e-02 9.398000e-03 20 2 20 4
+ISection 205 1 4.495800e-01 1.524000e-01 1.079500e-02 7.620000e-03 20 2 20 4
+ISection 206 1 4.089400e-01 1.788160e-01 1.435100e-02 8.763000e-03 20 2 20 4
+ISection 207 1 4.546600e-01 1.529080e-01 1.333500e-02 8.001000e-03 20 2 20 4
+ISection 208 1 4.140200e-01 1.795780e-01 1.600200e-02 9.652000e-03 20 2 20 4
+ISection 209 1 4.597400e-01 1.539240e-01 1.536700e-02 9.144000e-03 20 2 20 4
+ISection 210 1 4.165600e-01 1.808480e-01 1.816100e-02 1.092200e-02 20 2 20 4
+ISection 211 1 4.572000e-01 1.905000e-01 1.447800e-02 9.017000e-03 20 2 20 4
+ISection 212 1 5.257800e-01 1.651000e-01 1.143000e-02 8.890000e-03 20 2 20 4
+ISection 213 1 5.283200e-01 1.658620e-01 1.358900e-02 9.652000e-03 20 2 20 4
+ISection 214 1 5.359400e-01 1.666240e-01 1.651000e-02 1.028700e-02 20 2 20 4
+ISection 215 1 5.994400e-01 1.780540e-01 1.282700e-02 1.003300e-02 20 2 20 4
+ISection 216 1 5.359400e-01 2.100580e-01 1.739900e-02 1.092200e-02 20 2 20 4
+ISection 217 1 6.019800e-01 1.788160e-01 1.498600e-02 1.092200e-02 20 2 20 4
+ISection 218 1 6.070600e-01 2.283460e-01 1.727200e-02 1.117600e-02 20 2 20 4
+ISection 219 1 6.121400e-01 2.291080e-01 1.955800e-02 1.193800e-02 20 2 20 4
+ISection 220 1 6.832600e-01 2.540000e-01 1.892300e-02 1.244600e-02 20 2 20 4
+ISection 221 1 6.883400e-01 2.540000e-01 2.108200e-02 1.308100e-02 20 2 20 4
+ISection 222 1 6.934200e-01 2.565400e-01 2.362200e-02 1.447800e-02 20 2 20 4
+ISection 223 1 7.569200e-01 2.667000e-01 1.930400e-02 1.384300e-02 20 2 20 4
+ISection 224 1 7.620000e-01 2.667000e-01 2.159000e-02 1.435100e-02 20 2 20 4
+
+
+HSSsection 301 1 7.620000e-01 4.420000e-03 4 4 4 4 
+HSSsection 302 1 7.620000e-01 5.920000e-03 4 4 4 4 
+HSSsection 303 1 7.620000e-01 7.390000e-03 4 4 4 4 
+HSSsection 304 1 7.620000e-01 8.864600e-03 4 4 4 4 
+HSSsection 305 1 8.890000e-01 7.390000e-03 4 4 4 4 
+HSSsection 306 1 8.890000e-01 8.860000e-03 4 4 4 4 
+HSSsection 307 1 1.020000e+00 8.860000e-03 4 4 4 4 
+HSSsection 308 1 1.140000e+00 8.860000e-03 4 4 4 4 
+HSSsection 309 1 1.020000e+00 1.181100e-02 4 4 4 4 
+HSSsection 310 1 1.270000e+00 8.864600e-03 4 4 4 4 
+HSSsection 311 1 1.140000e+00 1.180000e-02 4 4 4 4 
+HSSsection 312 1 1.520000e+00 8.860000e-03 4 4 4 4 
+HSSsection 313 1 1.270000e+00 1.180000e-02 4 4 4 4 
+HSSsection 314 1 1.520000e+00 1.180000e-02 4 4 4 4 
+HSSsection 315 1 1.520000e+00 1.480000e-02 4 4 4 4 
+HSSsection 316 1 2.030000e+00 1.180000e-02 4 4 4 4 
+HSSsection 317 1 1.780000e+00 1.480000e-02 4 4 4 4 
+HSSsection 318 1 2.030000e+00 1.480000e-02 4 4 4 4 
+HSSsection 319 1 2.290000e+00 1.480000e-02 4 4 4 4 
+HSSsection 320 1 2.540000e+00 1.480000e-02 4 4 4 4 
+HSSsection 321 1 2.540000e+00 1.770000e-02 4 4 4 4 
+HSSsection 322 1 3.050000e+00 1.770000e-02 4 4 4 4 
+HSSsection 323 1 3.560000e+00 2.070000e-02 4 4 4 4 
+set nn 10 
+element nonlinearBeamColumn 111 10 110 $nn 104  1 
+element nonlinearBeamColumn 121 20 120 $nn 103  1 
+element nonlinearBeamColumn 131 30 130 $nn 103  1 
+element nonlinearBeamColumn 141 40 140 $nn 104  1 
+element nonlinearBeamColumn 211 110 210 $nn 104  1 
+element nonlinearBeamColumn 221 120 220 $nn 103  1 
+element nonlinearBeamColumn 231 130 230 $nn 103  1 
+element nonlinearBeamColumn 241 140 240 $nn 104  1 
+element nonlinearBeamColumn 311 210 310 $nn 103  1 
+element nonlinearBeamColumn 321 220 320 $nn 103  1 
+element nonlinearBeamColumn 331 230 330 $nn 103  1 
+element nonlinearBeamColumn 341 240 340 $nn 103  1 
+element nonlinearBeamColumn 411 310 410 $nn 103  1 
+element nonlinearBeamColumn 421 320 420 $nn 103  1 
+element nonlinearBeamColumn 431 330 430 $nn 103  1 
+element nonlinearBeamColumn 441 340 440 $nn 103  1 
+element nonlinearBeamColumn 511 410 510 $nn 102  1 
+element nonlinearBeamColumn 521 420 520 $nn 101  1 
+element nonlinearBeamColumn 531 430 530 $nn 101  1 
+element nonlinearBeamColumn 541 440 540 $nn 102  1 
+
+
+geomTransf Linear 2 
+element nonlinearBeamColumn 112 112 121 $nn 203 2 
+element nonlinearBeamColumn 122 122 131 $nn 203 2 
+element nonlinearBeamColumn 132 132 141 $nn 203 2 
+element nonlinearBeamColumn 212 212 221 $nn 203 2 
+element nonlinearBeamColumn 222 222 231 $nn 203 2 
+element nonlinearBeamColumn 232 232 241 $nn 203 2 
+element nonlinearBeamColumn 312 312 321 $nn 203 2 
+element nonlinearBeamColumn 322 322 331 $nn 203 2 
+element nonlinearBeamColumn 332 332 341 $nn 203 2 
+element nonlinearBeamColumn 412 412 421 $nn 203 2 
+element nonlinearBeamColumn 422 422 431 $nn 203 2 
+element nonlinearBeamColumn 432 432 441 $nn 203 2 
+element nonlinearBeamColumn 512 512 521 $nn 203 2 
+element nonlinearBeamColumn 522 522 531 $nn 203 2 
+element nonlinearBeamColumn 532 532 541 $nn 203 2 
+
+
+uniaxialMaterial Elastic 2   2000000000000    
+uniaxialMaterial Elastic 3   2.0e-12   
+
+
+element zeroLength    1114   110  112    -mat   2  2  3   -dir    1  2   3    
+element zeroLength    1214   210  212    -mat   2  2  3   -dir    1  2   3    
+element zeroLength    1314   310  312    -mat   2  2  3   -dir    1  2   3    
+element zeroLength    1414   410  412    -mat   2  2  3   -dir    1  2   3    
+element zeroLength    1514   510  512    -mat   2  2  3   -dir    1  2   3    
+element zeroLength    1241   120  121    -mat   2  2  3   -dir    1  2   3    
+element zeroLength    1242   120  122    -mat   2  2  3   -dir    1  2   3    
+element zeroLength    2241   220  221    -mat   2  2  3   -dir    1  2   3    
+element zeroLength    2242   220  222    -mat   2  2  3   -dir    1  2   3    
+element zeroLength    3241   320  321    -mat   2  2  3   -dir    1  2   3    
+element zeroLength    3242   320  322    -mat   2  2  3   -dir    1  2   3    
+element zeroLength    4241   420  421    -mat   2  2  3   -dir    1  2   3    
+element zeroLength    4242   420  422    -mat   2  2  3   -dir    1  2   3    
+element zeroLength    5241   520  521    -mat   2  2  3   -dir    1  2   3    
+element zeroLength    5242   520  522    -mat   2  2  3   -dir    1  2   3    
+element zeroLength    1341   130  131    -mat   2  2  3   -dir    1  2   3    
+element zeroLength    1342   130  132    -mat   2  2  3   -dir    1  2   3    
+element zeroLength    2341   230  231    -mat   2  2  3   -dir    1  2   3    
+element zeroLength    2342   230  232    -mat   2  2  3   -dir    1  2   3    
+element zeroLength    3341   330  331    -mat   2  2  3   -dir    1  2   3    
+element zeroLength    3342   330  332    -mat   2  2  3   -dir    1  2   3    
+element zeroLength    4341   430  431    -mat   2  2  3   -dir    1  2   3    
+element zeroLength    4342   430  432    -mat   2  2  3   -dir    1  2   3    
+element zeroLength    5341   530  531    -mat   2  2  3   -dir    1  2   3    
+element zeroLength    5342   530  532    -mat   2  2  3   -dir    1  2   3    
+element zeroLength    1144   140  141    -mat   2  2  3   -dir    1  2   3    
+element zeroLength    1244   240  241    -mat   2  2  3   -dir    1  2   3    
+element zeroLength    1344   340  341    -mat   2  2  3   -dir    1  2   3    
+element zeroLength    1444   440  441    -mat   2  2  3   -dir    1  2   3    
+element zeroLength    1544   540  541    -mat   2  2  3   -dir    1  2   3    
+
+
+set s1p 3.515348e+07 
+set e1p 1.723689e-03 
+set s2p 3.515348e+07 
+set e2p 1.723689e-01 
+set s3p 3.515348e+07 
+set e3p 3.447379e-01 
+set e2n -8.618447e-03 
+set e3n -8.618447e-01 
+uniaxialMaterial Hysteretic 4 $s1p $e1p $s2p $e2p $s3p $e3p -1.969617e+07 -9.657670e-04 -3.939233e+06 $e2n -3.939233e+06 $e3n  0.0 0.0 0.0 0.0 
+uniaxialMaterial Hysteretic 5 $s1p $e1p $s2p $e2p $s3p $e3p -8.685131e+06 -4.258602e-04 -1.737026e+06 $e2n -1.737026e+06 $e3n  0.0 0.0 0.0 0.0 
+uniaxialMaterial Hysteretic 6 $s1p $e1p $s2p $e2p $s3p $e3p -1.108189e+07 -5.433809e-04 -2.216377e+06 $e2n -2.216377e+06 $e3n  0.0 0.0 0.0 0.0 
+uniaxialMaterial Hysteretic 7 $s1p $e1p $s2p $e2p $s3p $e3p -1.674943e+07 -8.212791e-04 -3.349886e+06 $e2n -3.349886e+06 $e3n  0.0 0.0 0.0 0.0 
+uniaxialMaterial Hysteretic 8 $s1p $e1p $s2p $e2p $s3p $e3p -8.685131e+06 -4.258602e-04 -1.737026e+06 $e2n -1.737026e+06 $e3n  0.0 0.0 0.0 0.0 
+
+element corotTruss 113 10 120 9.030000e-03 4
+element corotTruss 134 130 40 9.030000e-03 4
+element corotTruss 214 210 120 4.480000e-03 5
+element corotTruss 233 130 240 4.480000e-03 5
+element corotTruss 314 310 220 5.080000e-03 6
+element corotTruss 333 230 340 5.080000e-03 6
+element corotTruss 323 220 330 5.080000e-03 6
+element corotTruss 324 320 230 5.080000e-03 6
+element corotTruss 414 410 320 4.890000e-03 7
+element corotTruss 433 330 440 4.890000e-03 7
+element corotTruss 423 320 430 4.890000e-03 7
+element corotTruss 424 420 330 4.890000e-03 7
+element corotTruss 514 510 420 4.480000e-03 8
+element corotTruss 533 430 540 4.480000e-03 8
+
+
+pattern Plain 1 Linear { 
+eleLoad -ele 112 -type -beamUniform -2750 
+eleLoad -ele 122 -type -beamUniform -2750 
+eleLoad -ele 132 -type -beamUniform -2750 
+eleLoad -ele 212 -type -beamUniform -2750 
+eleLoad -ele 222 -type -beamUniform -2750 
+eleLoad -ele 232 -type -beamUniform -2750 
+eleLoad -ele 312 -type -beamUniform -2750 
+eleLoad -ele 322 -type -beamUniform -2750 
+eleLoad -ele 332 -type -beamUniform -2750 
+eleLoad -ele 412 -type -beamUniform -2750 
+eleLoad -ele 422 -type -beamUniform -2750 
+eleLoad -ele 432 -type -beamUniform -2750 
+eleLoad -ele 512 -type -beamUniform -2750 
+eleLoad -ele 522 -type -beamUniform -2750 
+eleLoad -ele 532 -type -beamUniform -2750 
+} 
+
+
+
+constraints Plain
+numberer Plain
+system SparseGEN 
+test NormDispIncr   1.0e-6  60
+algorithm Newton 
+integrator LoadControl 0.1 
+analysis Static 
+analyze 10 
+loadConst  -time  0.0  
+
+set Pi [expr 4*atan(1)] 
+set eig [eigen 5]
+
+puts  "First   Mode Period is: [expr 2*$Pi/pow([lindex $eig 0],0.5)]"  
+puts  "Second Mode Period is: [expr 2*$Pi/pow([lindex $eig 1],0.5)]"  
+
+set  NT1  [expr 2*$Pi/pow([lindex $eig 0],0.5)];  
+set  NT2  [expr 2*$Pi/pow([lindex $eig 1],0.5)];  
+set  NT3  [expr 2*$Pi/pow([lindex $eig 2],0.5)];  
+set  NT4  [expr 2*$Pi/pow([lindex $eig 3],0.5)];  
+set  NT5  [expr 2*$Pi/pow([lindex $eig 4],0.5)];  
+
+set NToutfile [open NonlinearResults/NonlinearPeriods.out w];  
+
+puts $NToutfile "[expr $NT1]"  
+puts $NToutfile "[expr $NT2]"  
+puts $NToutfile "[expr $NT3]"  
+puts $NToutfile "[expr $NT4]"  
+puts $NToutfile "[expr $NT5]"  
+
+close $NToutfile  
+
+recorder Node  -file  NonlinearResults/NonlinearEigen.out -node 110 210 310 410 510 -dof 1 eigen 0  
+record  
+
+puts "End of Modal5_nonlinear analyze" 
+exit 

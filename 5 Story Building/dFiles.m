@@ -1,0 +1,16 @@
+delete  NonlinearResults/NonlinearEigen.out;
+delete  NonlinearResults/NonlinearPeriods.out;
+delete  NonlinearResults/disp540.out;
+delete  NonlinearResults/reac10.out;
+delete  NonlinearResults/reac20.out;
+delete  NonlinearResults/reac30.out;
+delete  NonlinearResults/reac40.out;
+delete  NonlinearResults/drift1.out;
+delete  NonlinearResults/drift2.out;
+delete  NonlinearResults/drift3.out;
+delete  NonlinearResults/drift4.out;
+delete  NonlinearResults/drift5.out;
+delete NonlinearResults/NLCForce.out
+delete NonlinearResults/NLBrForce.out
+delete  NonlinearResults/PlasticCRotation.out;
+delete  NonlinearResults/PlasticBrStrain.out;
